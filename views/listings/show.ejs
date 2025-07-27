@@ -1,0 +1,22 @@
+<%- include('../partials/_html-head.ejs', {title: listing.owner.username + "'s listing" }) %>
+<%- include('../partials/_nav-bar.ejs') %>
+   
+
+    <h1>A listing in <%= listing.city %></h1>
+
+    <h2>Details</h2>
+    <p>House Size: <%= listing.size %> sq ft</p>
+    <p>Price: $<%= listing.price %></p>
+    <p>Street address: <%= listing.streetAddress %></p>
+
+    <h2>Owner</h2>
+    <% if (listing.owner._id.equals(user._id)) { %>
+<p>You own this!</p>
+<form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete this listing!</button>
+</form>
+    <% } else { %>
+<p>You don't own this, <%= listing.owner.username %> does!</p>
+    <% } %>
+  </body>
+</html>
