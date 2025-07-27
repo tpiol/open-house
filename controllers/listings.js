@@ -13,5 +13,14 @@ router.get("/", async (req, res) => {
     }
 });
 
+// GET /listings/new
+router.get("/new", (req, res) => {
+   try {
+res.render("listings/new.ejs")
+   } catch (error) {
+    console.log(error);
+    res.redirect("/")
+   }
+})
 
 module.exports = router;
