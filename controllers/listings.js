@@ -5,8 +5,10 @@ const Listing = require("../models/listing");
 // GET /listings
 router.get("/", async (req, res) => {
     try {
-        const allListings = await Listing.find({});
-        res.render("listings/index.ejs")
+        const populatedListings = await Listing.find({}).populate("owner");
+        res.render("listings/index.ejs", {
+            listings: populatedListings,
+        })
     } catch (error) {
         console.log(error);
         res.redirect("/");

@@ -7,6 +7,14 @@
 
         <main>
             <h1>Here's all the Listings</h1>
+            
+            <ul>
+                <% listings.forEach((listing) => { %>
+                <li>
+                 A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
+                 </li>
+             <% }); %>
+            </ul>
             <a role = "button" href="/listings/new">Add a New Listing</a>
         </main>
         </body>
