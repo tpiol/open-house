@@ -23,4 +23,16 @@ res.render("listings/new.ejs")
    }
 })
 
+//POST /listings/
+router.post("/", async (req, res) => {
+    try{
+       req.body.owner = req.session.user._id;
+       await Listing.create(req.body);
+        res.redirect("/listings")
+    } catch (error) {
+        console.log("/");
+        res.redirect("/");
+    }
+})
+
 module.exports = router;
