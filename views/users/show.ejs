@@ -1,0 +1,32 @@
+<!-- views/users/show.ejs -->
+
+<%- include('../partials/_html-head.ejs', {title: "My Profile" }) %>
+<%- include('../partials/_nav-bar.ejs') %>
+  <body>
+   
+    <h1>Profile</h1>
+
+    <h2>My Listings</h2>
+<p>
+  You own <%= myListings.length %> <%= myListings.length === 1 ? 'listing.' :
+  'listings.' %>
+
+  <!-- views/users/show.ejs -->
+
+<ul>
+  <% myListings.forEach((listing) => { %>
+  <li>
+    A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
+    <a href="/listings/<%= listing._id %>">View more details.</a>
+  </li>
+  <% }) %>
+</ul>
+
+</p>
+    <h2>My Favorites</h2>
+    <p>
+        You favorited <%= myFavoriteListings.length %> <%= myFavoriteListings.length === 1 ? 'listing.' :
+  'listings.' %>
+    </p>
+  </body>
+</html>
