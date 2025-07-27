@@ -4,7 +4,7 @@
 
  <h1>Edit a listing!</h1>
  <article>
- <form>
+ <form action="/listings/<%=listing._id%>?_method=PUT" method="POST">
      <label for="streetAddress">Address:</label>
     <input type="text" 
     name="streetAddress" 
